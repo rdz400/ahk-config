@@ -61,3 +61,29 @@ from itertools import repeat, accumulate
     var:= "fig, ax = plt.subplots()"
     SendInput(var)
 }
+
+::mpe::
+{
+    var:= "fig.canvas.mpl_connect('button_press_event', onclick)"
+    SendInput(var)
+}
+
+::rpp::
+{
+    SendInput("$Env:REPOS")
+}
+
+::snp::
+{
+    SendInput("$Env:SNIPPETS")
+}
+
+::plm::
+{
+    SendInput("lambda x: ")
+}
+
+::gca::
+{
+    SendInput("git commit -a -m ")
+}
