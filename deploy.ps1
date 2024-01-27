@@ -1,7 +1,7 @@
 
 
 $loc = "$($env:APPDATA)\Microsoft\Windows\Start Menu\Programs\Startup\ahk.lnk"
-$pad = gci ".\AutoHotkey64.exe"
+$pad = Get-ChildItem ".\AutoHotkey64.exe"
 $source_path = $pad.FullName
 
 $WScriptObj = New-Object -ComObject ("WScript.Shell")

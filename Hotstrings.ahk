@@ -14,6 +14,16 @@
     SendInput(A_YYYY . A_MM . A_DD . "T" . A_Hour . A_Min)
 }
 
+::ts::
+{
+    SendInput("T" . A_Hour . A_Min)
+}
+
+::ots::
+{
+    SendInput("==T" . A_Hour . A_Min . "==")
+}
+
 ::dtw::
 {
    SendInput(A_YWeek)
@@ -56,17 +66,27 @@ from itertools import repeat, accumulate
     SendInput(var)
 }
 
+::pdo::
+{
+    var:= "
+(
+pd.options.display.max_rows = 100
+pd.options.display.min_rows = 100
+)"
+    SendInput(var)
+}
+
 ::mpp::
 {
     var:= "fig, ax = plt.subplots()"
     SendInput(var)
 }
 
-::mpe::
-{
-    var:= "fig.canvas.mpl_connect('button_press_event', onclick)"
-    SendInput(var)
-}
+; ::mpe::
+; {
+;     var:= "fig.canvas.mpl_connect('button_press_event', onclick)"
+;     SendInput(var)
+; }
 
 ::rpp::
 {
@@ -83,7 +103,12 @@ from itertools import repeat, accumulate
     SendInput("lambda x: ")
 }
 
-::gca::
-{
-    SendInput("git commit -a -m ")
-}
+; ::gca::
+; {
+;     SendInput("git commit -a -m ")
+; }
+
+; ::pjp::
+; {
+;     SendInput("jupyter lab")
+; }

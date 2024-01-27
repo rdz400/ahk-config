@@ -26,6 +26,12 @@
     }
 }
 
+^+w::F11
+
+^#Tab::^PgDn
+
+^+#Tab::^PgUp
+
 /*
 **********************
 ****File Explorer Shortcuts
@@ -64,5 +70,19 @@
     SendInput("{Esc}")
     NewClipBoard:="ms-excel:" . Result
     A_Clipboard := NewClipBoard
+}
+#HotIf
+
+/*
+**********************
+****EXCEL Shortcuts
+**********************
+*/
+
+#HotIf WinActive("ahk_exe DaxStudio.exe")
+
+Media_Play_Pause::
+{
+    SendInput("{F5}")
 }
 #HotIf
