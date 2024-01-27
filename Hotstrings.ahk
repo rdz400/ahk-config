@@ -82,12 +82,6 @@ pd.options.display.min_rows = 100
     SendInput(var)
 }
 
-; ::mpe::
-; {
-;     var:= "fig.canvas.mpl_connect('button_press_event', onclick)"
-;     SendInput(var)
-; }
-
 ::rpp::
 {
     SendInput("$Env:REPOS")
@@ -102,13 +96,3 @@ pd.options.display.min_rows = 100
 {
     SendInput("lambda x: ")
 }
-
-; ::gca::
-; {
-;     SendInput("git commit -a -m ")
-; }
-
-; ::pjp::
-; {
-;     SendInput("jupyter lab")
-; }
