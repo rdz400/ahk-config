@@ -1,11 +1,23 @@
-# Dit werkt niet meer, ik maak nu een shortcut van AutoHotkey64.ahk en sla
-# deze op in Startup (de folder die je hieronder ziet)
 
 $loc = "$($env:APPDATA)\Microsoft\Windows\Start Menu\Programs\Startup\ahk.lnk"
-$pad = Get-ChildItem ".\AutoHotkey64.ahk"
-$source_path = $pad.FullName
 
+# Ahk Script
+$script_loc = Get-Item ".\AutoHotkey64.ahk"
+
+# Ahk Executable
+$ahk_executable = Get-Item "$Env:LOCALAPPDATA\Programs\AutoHotkey\v2\AutoHotkey64.exe"
+$ahk_dir = $ahk_executable.Directory
+
+# Create the shortcut
 $WScriptObj = New-Object -ComObject ("WScript.Shell")
 $shortcut = $WscriptObj.CreateShortcut($loc)
-$shortcut.TargetPath = $source_path
+$target_arg = "`"$($script_loc)`""
+
+$shortcut.TargetPath = $ahk_executable.FullName
+$shortcut.Arguments = "$target_arg"
+$shortcut.WorkingDirectory =  $ahk_dir.FullName
+
 $shortcut.Save()
+
+
+
