@@ -36,13 +36,10 @@
     SendInput(userprofile)
 }
 
-::sn::
-{
-    SendInput("%SNIPPETS%")
-}
 
-::rp::
+::pp::
 {
-    SendInput("%REPOS%")
+    scripts_folder := EnvGet("SCRIPTS_FOLDER")
+    SendInput("py " . scripts_folder . "\")
 }
 
