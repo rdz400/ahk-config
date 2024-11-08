@@ -24,6 +24,11 @@
     SendInput("==T" . A_Hour . A_Min . "==")
 }
 
+::pts::
+{
+    SendInput("[T::" . A_Hour . A_Min . "]")
+}
+
 
 ::dtw::
 {
