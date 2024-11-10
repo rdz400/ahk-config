@@ -26,7 +26,12 @@ GroupAdd "drawio", "ahk_exe draw.io.exe"
 ^!p::
 {
     MyInput := InputBox("Projectnaam:", "Nieuw project Obsidian")
-    Run "pwsh " . EnvGet("SCRIPTS_FOLDER") . "\new_project.ps1 " . MyInput.Value,,"Hide"    
+    Run "pwsh " . EnvGet("SCRIPTS_FOLDER") . "\new_project.ps1 " . MyInput.Value,,"Hide"
+}
+
+^!o::
+{
+    Run "pwsh " . EnvGet("SCRIPTS_FOLDER") . "\wrapper.ps1 ", , "Hide"
 }
 
 
