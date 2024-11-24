@@ -4,10 +4,11 @@
 
 GroupAdd "msedge", "ahk_exe msedge.exe"
 GroupAdd "drawio", "ahk_exe draw.io.exe"
+GroupAdd "code", "ahk_exe Code.exe"
 
 ^!x::GroupActivate "msedge"
-
 ^!d::GroupActivate "drawio"
+^!s::GroupActivate "code"
 
 !^z::
 {
@@ -34,5 +35,7 @@ GroupAdd "drawio", "ahk_exe draw.io.exe"
     Run "pwsh " . EnvGet("SCRIPTS_FOLDER") . "\wrapper.ps1 ", , "Hide"
 }
 
+; Remap CapsLock to Escape to make Vim easier
+CapsLock::Escape
 
 #Include "Hotstrings.ahk"
