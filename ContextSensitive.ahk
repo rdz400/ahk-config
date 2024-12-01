@@ -34,27 +34,6 @@
 
 /*
 **********************
-****File Explorer Shortcuts
-**********************
-*/
-
-#HotIf WinActive("ahk_exe Explorer.EXE")
-^+c::
-{
-    A_Clipboard:=""
-    ; SendInput("{Shift down}{F10 down}")
-    ; SendInput("{Shift up}{F10 up}")
-    SendInput("+{F10}")
-    Sleep(100)
-    SendInput("a")
-    If !ClipWait(3){
-        MsgBox("Failed to copy")
-    }
-    A_Clipboard:=Trim(A_Clipboard, "`"' ")
-}
-
-/*
-**********************
 ****EXCEL Shortcuts
 **********************
 */

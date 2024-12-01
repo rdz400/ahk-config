@@ -9,6 +9,11 @@
     SendInput(A_YYYY . A_MM . A_DD)
 }
 
+::dtt::
+{
+    SendInput(FormatTime(,"yyMMdd"))
+}
+
 ::dts::
 {
     SendInput(A_YYYY . A_MM . A_DD . "T" . A_Hour . A_Min)
