@@ -63,16 +63,6 @@ GetMonitorAt(X, Y)
     Return MonitorGetPrimary()
 }
 
-^!p::
-{
-    MyInput := InputBox("Projectnaam:", "Nieuw project Obsidian")
-    Run "pwsh " . EnvGet("SCRIPTS_FOLDER") . "\new_project.ps1 " . MyInput.Value,,"Hide"
-}
-
-^!o::
-{
-    Run "pwsh " . EnvGet("SCRIPTS_FOLDER") . "\wrapper.ps1 ", , "Hide"
-}
 
 ; Remap CapsLock to Escape to make Vim easier
 CapsLock::Escape
