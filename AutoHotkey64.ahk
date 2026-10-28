@@ -34,6 +34,15 @@ GroupAdd "code", "ahk_exe Code.exe"
     }
 }
 
+^!t::
+{
+    If (UniqueID := WinExist("ahk_exe ms-teams.exe")) {
+        WinActivate("ahk_id " . UniqueID)
+    } Else {
+        Run "explorer.exe shell:AppsFolder\MSTeams_8wekyb3d8bbwe!MSTeams"
+    }
+}
+
 ; Center the active window on the monitor it is currently on
 #!c::
 {
