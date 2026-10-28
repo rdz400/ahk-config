@@ -34,6 +34,26 @@ GroupAdd "code", "ahk_exe Code.exe"
     }
 }
 
+; Center the active window on the monitor it is currently on
+#!c::
+{
+    If !(UniqueID := WinExist("A")) || WinGetMinMax("ahk_id " . UniqueID) != 0
+        Return
+    WinGetPos(&X, &Y, &W, &H, "ahk_id " . UniqueID)
+    MonitorGetWorkArea(GetMonitorAt(X + W // 2, Y + H // 2), &Left, &Top, &Right, &Bottom)
+    WinMove(Left + (Right - Left - W) // 2, Top + (Bottom - Top - H) // 2, , , "ahk_id " . UniqueID)
+}
+
+GetMonitorAt(X, Y)
+{
+    Loop MonitorGetCount() {
+        MonitorGet(A_Index, &Left, &Top, &Right, &Bottom)
+        If (X >= Left && X < Right && Y >= Top && Y < Bottom)
+            Return A_Index
+    }
+    Return MonitorGetPrimary()
+}
+
 ^!p::
 {
     MyInput := InputBox("Projectnaam:", "Nieuw project Obsidian")
