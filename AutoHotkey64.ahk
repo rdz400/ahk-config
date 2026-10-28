@@ -1,3 +1,13 @@
+; Hotkey modifier symbols:
+;   #  Win
+;   !  Alt
+;   ^  Ctrl
+;   +  Shift
+;   <  / >  Left / right variant of the modifier that follows (e.g. <^ = left Ctrl)
+;   ~  Let the key's native function pass through as well
+;   *  Fire even when extra modifiers are held down
+;   $  Prevent the hotkey from being triggered by its own Send
+
 ^F5::Reload
 
 !Volume_Up::SendInput "!{F4}"
