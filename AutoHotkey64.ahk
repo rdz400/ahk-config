@@ -43,6 +43,16 @@ GroupAdd "code", "ahk_exe Code.exe"
     }
 }
 
+; Copilot key + O: open Outlook (the Copilot key sends LShift + LWin + F23)
+F23 & o::
+{
+    If (UniqueID := WinExist("ahk_exe OUTLOOK.EXE")) || (UniqueID := WinExist("ahk_exe olk.exe")) {
+        WinActivate("ahk_id " . UniqueID)
+    } Else {
+        Run "outlook.exe"
+    }
+}
+
 ; Center the active window on the monitor it is currently on
 #!c::
 {
